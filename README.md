@@ -78,13 +78,13 @@ DB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/bike-mart?retryW
 #### **Run the Application**
 For development:
 ```bash
-npm run dev
+npm run start:dev
 ```
 
 For production:
 ```bash
 npm run build
-npm start
+npm start:dev
 ```
 
 ---
