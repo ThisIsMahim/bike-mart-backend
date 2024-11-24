@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateRevenue = exports.createOrder = void 0;
+exports.getOrders = exports.calculateRevenue = exports.createOrder = void 0;
 const order_validation_1 = require("./order.validation");
 const order_service_1 = require("./order.service");
 const createOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -41,3 +41,24 @@ const calculateRevenue = (req, res, next) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.calculateRevenue = calculateRevenue;
+const getOrders = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield order_service_1.orderServices.getAllOrders();
+        if (!result) {
+            return res.status(404).json({
+                message: 'No orders found',
+                status: false,
+            });
+        }
+        else
+            res.status(200).json({
+                message: 'Orders fetched successfully',
+                status: true,
+                data: result,
+            });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.getOrders = getOrders;

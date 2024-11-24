@@ -28,6 +28,15 @@ const orderBike = (orderData) => __awaiter(void 0, void 0, void 0, function* () 
     const newOrder = yield order_model_1.OrderModel.create(orderData);
     return newOrder;
 });
+const getAllOrders = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield order_model_1.OrderModel.find();
+        return result;
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
 const getTotalRevenue = () => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const result = yield order_model_1.OrderModel.aggregate([
@@ -43,4 +52,5 @@ const getTotalRevenue = () => __awaiter(void 0, void 0, void 0, function* () {
 exports.orderServices = {
     orderBike,
     getTotalRevenue,
+    getAllOrders,
 };
