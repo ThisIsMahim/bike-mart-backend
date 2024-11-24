@@ -5,7 +5,7 @@ import app from './app'
 async function server() {
   try {
     await mongoose.connect(config.database_url as string)
-    app.listen(config.port, () => {
+    app.listen(config.port||3000, () => {
       console.log(`server running on port ${config.port}`)
     })
   } catch (error) {
@@ -14,3 +14,5 @@ async function server() {
 }
 
 server()
+
+export default server
