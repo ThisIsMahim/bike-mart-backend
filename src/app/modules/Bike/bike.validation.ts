@@ -12,5 +12,3 @@ export const bikeValidationSchema = z.object({
   quantity: z.number().int().nonnegative("Quantity must be a non-negative integer"),
   inStock: z.boolean({ required_error: "InStock status is required" }),
 });
-
-export type ValidatedBike = z.infer<typeof bikeValidationSchema>;

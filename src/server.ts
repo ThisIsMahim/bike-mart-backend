@@ -2,10 +2,10 @@ import mongoose from 'mongoose'
 import config from './app/config'
 import app from './app'
 
-async function server() {
+async function main() {
   try {
     await mongoose.connect(config.database_url as string)
-    app.listen(config.port||3000, () => {
+    app.listen(config.port, () => {
       console.log(`server running on port ${config.port}`)
     })
   } catch (error) {
@@ -13,6 +13,5 @@ async function server() {
   }
 }
 
-server()
+main()
 
-export default server
