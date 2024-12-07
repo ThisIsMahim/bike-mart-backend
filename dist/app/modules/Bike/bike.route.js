@@ -9,7 +9,7 @@ const bike_controller_1 = require("./bike.controller");
 // using express router to crete a router at api/products endpoint
 const router = express_1.default.Router();
 // post method to create a bike
-router.post('/create-bike', bike_controller_1.bikeController.createBike);
+router.post('/', bike_controller_1.bikeController.createBike);
 // get method to get all bikes at api/products
 router.get('/', bike_controller_1.bikeController.getAllBikes);
 // get method to get single bike by product id
