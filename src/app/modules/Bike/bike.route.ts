@@ -4,7 +4,7 @@ import { bikeController } from './bike.controller';
 const router= express.Router()
 
 // post method to create a bike
-router.post('/create-bike',bikeController.createBike)
+router.post('/',bikeController.createBike)
 
 // get method to get all bikes at api/products
 router.get('/',bikeController.getAllBikes)
